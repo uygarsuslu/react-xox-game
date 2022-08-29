@@ -28,6 +28,8 @@
   height: 5rem;
   width: 5rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   color: white;
   font-size: 4rem;
@@ -35,4 +37,9 @@
 
 .square:hover {
   background: rgb(255, 156, 27);
+}
+
+.square.clicked {
+  background: rgb(170, 102, 63);
+  cursor:not-allowed;
 }
