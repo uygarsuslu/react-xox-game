@@ -21,6 +21,7 @@ function Xox() {
   const [player, setPlayer] = useState(false);
   const [gameFinished, setGameFinished] = useState(false);
   const [draw, setDraw] = useState(false);
+  const [winCount, setWinCount] = useState({ X: 0, O: 0 });
 
   function isGameOver() {
     if (!gameFinished) {
@@ -32,7 +33,7 @@ function Xox() {
           grid[winCombination[i][2]] === X_PLAYER
         ) {
           setGameFinished(true);
-          console.log("X WON");
+          setWinCount({ ...winCount, X: winCount.X + 1 });
           return;
         }
       }
@@ -45,7 +46,7 @@ function Xox() {
           grid[winCombination[i][2]] === O_PLAYER
         ) {
           setGameFinished(true);
-          console.log("O WON");
+          setWinCount({ ...winCount, O: winCount.O + 1 });
           return;
         }
       }
@@ -71,9 +72,9 @@ function Xox() {
       grid.map((item, index) => {
         if (index === id) {
           if (player) {
-            return X_PLAYER;
-          } else {
             return O_PLAYER;
+          } else {
+            return X_PLAYER;
           }
         } else {
           return item;
@@ -85,7 +86,19 @@ function Xox() {
 
   return (
     <div>
-      {gameFinished && <EndGame restartGame={restartGame} />}
+      <div className="win-history2">
+        X's Wins: {winCount.X}
+        <br />
+        O's Wins: {winCount.O}
+      </div>
+      {gameFinished && (
+        <EndGame
+          restartGame={restartGame}
+          player={player}
+          draw={draw}
+          winCount={winCount}
+        />
+      )}
       <Square clickedArray={grid} handleClick={handleClick} />
     </div>
   );
