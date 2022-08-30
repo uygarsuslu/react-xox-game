@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Square from "./Square";
+import EndGame from "./EndGame";
 
 const INITIAL = "";
 const X_PLAYER = "X";
@@ -57,6 +58,12 @@ function Xox() {
     }
   }
 
+  function restartGame() {
+    setGrid(Array(9).fill(INITIAL));
+    setGameFinished(false);
+    setDraw(false);
+  }
+
   isGameOver();
 
   function handleClick(id) {
@@ -78,6 +85,7 @@ function Xox() {
 
   return (
     <div>
+      {gameFinished && <EndGame restartGame={restartGame} />}
       <Square clickedArray={grid} handleClick={handleClick} />
     </div>
   );
