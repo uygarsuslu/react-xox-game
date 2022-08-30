@@ -36,6 +36,19 @@ function Xox() {
         }
       }
 
+      // O PLAYER WIN CHECK
+      for (let i = 0; i < 8; i++) {
+        if (
+          grid[winCombination[i][0]] === O_PLAYER &&
+          grid[winCombination[i][1]] === O_PLAYER &&
+          grid[winCombination[i][2]] === O_PLAYER
+        ) {
+          setGameFinished(true);
+          console.log("O WON");
+          return;
+        }
+      }
+
       // DRAW CHECK
       if (!grid.includes(INITIAL)) {
         setDraw(true);
