@@ -65,6 +65,11 @@ function Xox() {
     setDraw(false);
   }
 
+  function clearHistory() {
+    setWinCount({ X: 0, O: 0 });
+    restartGame();
+  }
+
   isGameOver();
 
   function handleClick(id) {
@@ -97,6 +102,7 @@ function Xox() {
           player={player}
           draw={draw}
           winCount={winCount}
+          clearHistory={clearHistory}
         />
       )}
       <Square clickedArray={grid} handleClick={handleClick} />

@@ -1,6 +1,6 @@
 import React from "react";
 
-function EndGame({ restartGame, player, draw, winCount }) {
+function EndGame({ restartGame, player, draw, winCount, clearHistory }) {
   return (
     <div className="end-game-screen">
       {!draw && <span className="win-text">{player ? "X WON" : "O WON"}</span>}
@@ -14,6 +14,9 @@ function EndGame({ restartGame, player, draw, winCount }) {
 
       <button className="btn" onClick={restartGame}>
         RESTART GAME
+      </button>
+      <button className="btn" onClick={clearHistory}>
+        CLEAR HISTORY
       </button>
     </div>
   );
