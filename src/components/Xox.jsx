@@ -23,6 +23,19 @@ function Xox() {
 
   function isGameOver() {
     if (!gameFinished) {
+      // X PLAYER WIN CHECK
+      for (let i = 0; i < 8; i++) {
+        if (
+          grid[winCombination[i][0]] === X_PLAYER &&
+          grid[winCombination[i][1]] === X_PLAYER &&
+          grid[winCombination[i][2]] === X_PLAYER
+        ) {
+          setGameFinished(true);
+          console.log("X WON");
+          return;
+        }
+      }
+
       // DRAW CHECK
       if (!grid.includes(INITIAL)) {
         setDraw(true);
