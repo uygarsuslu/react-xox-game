@@ -1,3 +1,9 @@
+# XoX Game | React
+
+### [XoX Game Live](https://tic-tac-toe-games-react.netlify.app/)
+
+![xox-game](https://user-images.githubusercontent.com/87071421/187689528-d62eba0e-200b-46e6-bafc-3e8994115007.gif)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
